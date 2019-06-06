@@ -41,7 +41,7 @@ class App extends Component {
     axios.get("ajax/score/data?mt="+this.state.mt,this.configIP())
     .then(response => {
       let data = response.data.rs;
-      console.log(data);
+      // console.log(data);
       this.filtAndUpdate(data);
     }).catch(error=>{console.log(error)});
   }
@@ -66,13 +66,15 @@ class App extends Component {
 
       // 赛事名称，用于后续进行筛选
       item.league && leagueList.add(item.league.n);
+
+      if(status === '-1') return false; // 排除无效数据
       
       // 总开关
       if(!filterOn) return true;// 总开关关闭，不进行筛选,全部通过
 
       // 屏蔽未开始和已经完成的比赛
       let gameFilter = true;
-      if(filtGames && (status==='全' || status==='未' || status==='-1')) gameFilter = false;
+      if(filtGames && (status==='全' || status==='未')) gameFilter = false;
 
       // 时间筛选
       let timeFilter = true
@@ -124,7 +126,7 @@ class App extends Component {
   componentDidMount(){
     this.setState({
       timer:setInterval(() => {
-        console.log("视图更新了");
+        // console.log("视图更新了");
         this.update();
       }, randomTimer(10,15))
     })
