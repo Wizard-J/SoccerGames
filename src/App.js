@@ -41,6 +41,7 @@ class App extends Component {
     axios.get("ajax/score/data?mt="+this.state.mt,this.configIP())
     .then(response => {
       let data = response.data.rs;
+      console.log(data);
       this.filtAndUpdate(data);
     }).catch(error=>{console.log(error)});
   }
