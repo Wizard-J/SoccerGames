@@ -1,0 +1,62 @@
+.filter{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: #eee;
+    overflow: hidden;
+    height: 0.5rem;
+    transition:500ms;
+    z-index: 99;
+    .head{
+        font-size: 0.17rem;
+        height: 0.5rem;
+        line-height: 0.5rem;
+        background-color: #eee;
+        display: flex;
+        justify-content: space-between;
+        >span{
+            padding:0 0.5rem;
+            background-color: #d5d5d5;
+        }
+    }
+    .params{
+        padding:0 0.1rem;
+        background-color: #f9f9f9;
+        ul{
+            li{
+                height: 0.5rem;
+                border-bottom: 1px solid #eee;
+
+                div.spaceBetween{
+                    display: flex;
+                    justify-content: space-between;
+                    span.status{
+                        color:#d35b56;
+                    }
+                }
+            }
+            li.leagueName{
+                min-height: 0.5rem;
+                span.title{
+                    width:1rem;
+                }
+            }
+            li.scores{
+                min-height: 0.5rem;
+                height: auto;
+                div.item-line{
+                    display: flex;
+                    justify-content: space-between;
+                    span.item{
+                        width: 1.5rem;
+                        text-align: right;
+                        color: skyblue;
+                    }
+                }
+            }
+        }
+    }
+}
+span.gameNames{
+    color: #d7d7d7;
+}

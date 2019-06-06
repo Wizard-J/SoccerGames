@@ -1,0 +1,110 @@
+.ac-box{
+    border-bottom: 1px solid #ddd;
+    .ac-abstract{
+        display: flex;
+        .play-time{
+            width:0.6rem;
+            text-align: center;
+            line-height: 1.6;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            .ccc{
+                .as{
+                    font-size: 0.16rem;
+                }
+                .vs{
+                    font-size: 0.2rem;
+                    color: #d35b56;
+                    font-weight: 400;
+                }
+            }
+        }
+        .paly-content{
+            flex:1;
+            display: flex;
+            flex-direction: column;
+            padding:0.1rem;
+            div{
+                display: flex;
+            }
+            .player-name{
+                width:1.2rem;
+            }
+            .time-line{
+                margin: 0.1rem 0;
+                height: 0.1rem;
+                background: #ccc;
+                position: relative;
+                box-sizing: border-box;
+                border-top: none;
+                .icons{
+                    i{
+                        width: 0.01rem;
+                        height: 0.08rem;
+                        transform: translate(-50%);
+                        z-index: 10;
+                        position: absolute;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        z-index: 10;
+                        position: absolute;
+                        bottom: -2px;
+                    }
+                    .z{
+                        width:0.15rem;
+                        height:0.15rem;
+                        line-height: 1.5;
+                        background-image: url("./img/hg.9765a72.png");
+                    }
+                    .k{
+                        width:0.15rem;
+                        height:0.15rem;
+                        background-image: url("./img/gg.24d8a6a.png");
+                    }
+                    .hson{
+                        bottom: 0.1rem;
+                        background: #ca0b13;
+                    }
+                    .asoff {
+                        top: 0.1rem;
+                        background: #4d00ca;
+                    }
+                    .hsoff {
+                        bottom: 0.1rem;
+                        background: #ca3328;
+                    }
+                }
+                .cd{
+                    position: absolute;
+                    height:0.1rem;
+                    bottom: 0;
+                    background: #11af80;
+                    left: 0;
+                }
+            }
+            .play-line{
+                div.card_status{
+                    display: block;
+                    span.card-yellow{
+                        font-size: 12px;
+                        background: #fdc20d;
+                        color: #7e521f;
+                        padding: 0 2px;
+                    }
+                    span.card-red{
+                        background: #ca3328;
+                        color: #fff;
+                        padding: 0 2px;
+                    }
+                }
+                div.ci{
+                    span{
+                        padding:0 0.1rem;
+                    }
+                }
+            }
+        }
+    }
+    
+}
