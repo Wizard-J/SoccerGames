@@ -65,7 +65,7 @@ class App extends Component {
       const hostSubsGuest = (hso*1+hsf*1)-(gso*1+gsf*1);
 
       // 赛事名称，用于后续进行筛选
-      leagueList.add(item.league.n);
+      item.league && leagueList.add(item.league.n);
       
       // 总开关
       if(!filterOn) return true;// 总开关关闭，不进行筛选,全部通过
