@@ -115,11 +115,11 @@ class Filter extends Component {
                             </div>
                         </li>
                         <li className="leagueName">
-                            <div>
-                                <p className='title'>赛事名称：</p>
+                            <div className='leagueName'>
+                                <span className='title'>赛事名称：</span>
                                 <Select
                                     mode="multiple"
-                                    style={{ width: '100%',height:'0.3rem' }}
+                                    style={{ width: '80%',height:'0.3rem',display:'block' }}
                                     placeholder={'pleace select'}
                                     defaultValue={this.state.showLeagues}
                                     onChange={this.handleChange}
