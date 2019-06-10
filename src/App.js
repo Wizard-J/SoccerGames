@@ -124,7 +124,7 @@ class App extends Component {
   componentDidMount(){
     this.setState({
       timer:setInterval(() => {
-        console.log("视图更新了");
+        // console.log("视图更新了");
         this.update();
       }, randomTimer(10,15))
     })
@@ -133,7 +133,7 @@ class App extends Component {
   render() {
     const data = this.state.data;
     let lastTeam; // 记录上一支比赛队伍
-    console.log(data);
+    // console.log(data);
     return (
       <div className="App" >
         <div className="games" style={{marginBottom:'0.5rem'}}>
