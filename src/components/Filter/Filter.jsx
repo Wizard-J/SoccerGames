@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Slider, Switch, Select, InputNumber } from 'antd';
+import { Slider, Switch, Select } from 'antd';
 import { switchFilter } from "../../redux/redux";
 import { connect } from "react-redux";
 
@@ -71,7 +71,6 @@ class Filter extends Component {
     // 比分列表
     scoreChanged(index,value) {
         let scores = this.state.scoresFilter;
-        console.log('index:',index,'value:',value);
 
         scores[index*2] = value[0];
         scores[index*2+1] = value[1];
