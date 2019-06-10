@@ -48,7 +48,7 @@ class Filter extends Component {
     // 禁用设备输入框
     blurElement(){
         const inputs = document.getElementsByClassName('ant-select-search__field')[0];
-        inputs.onfocus = inputs.onblur;
+        inputs.readOnly=true;
     }
 
     timeChange = (data) => {
