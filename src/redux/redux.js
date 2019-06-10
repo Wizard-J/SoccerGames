@@ -12,7 +12,7 @@ export function reducer(
         filtGames:true,
         leagueList:[],
         showLeagues:[],
-        scoresFilter:[0,0,0,-100] // 比分筛选功能
+        scoresFilter:[-15,15,-100,100] // 主队正偏-客队正偏: 最小值，最大值   主队危险进攻-客队危险进攻：最小值，最大值
     },action){
 
     let data = action.data;

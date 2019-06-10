@@ -45,11 +45,7 @@
                 min-height: 0.5rem;
                 height: auto;
                 div.item-line{
-                    display: flex;
-                    justify-content: space-between;
-                    span.item{
-                        width: 1.5rem;
-                        text-align: right;
+                    p.item{
                         color: skyblue;
                     }
                 }

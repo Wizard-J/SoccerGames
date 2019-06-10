@@ -61,8 +61,9 @@ class App extends Component {
 
       // 比分处理
       // 射正 hso|gso、 射偏hsf|gsf、 进攻ha|ga、 危险进攻hd|gd
-      const { hso,hsf,gso,gsf,hd } = item.plus ? item.plus : {hso:0,hsf:0,gso:0,gsf:0,hd:0};
+      const { hso,hsf,gso,gsf,hd,gd } = item.plus ? item.plus : {hso:0,hsf:0,gso:0,gsf:0,hd:0};
       const hostSubsGuest = (hso*1+hsf*1)-(gso*1+gsf*1);
+      const haSubsGa = hd-hd;
 
       // 赛事名称，用于后续进行筛选
       item.league && leagueList.add(item.league.n);
@@ -92,9 +93,11 @@ class App extends Component {
 
       // 比分筛选
       let scoresItem = true;
-      if(hso*1>=scoresFilter[0] && hsf*1>=scoresFilter[1] && hd*1>=scoresFilter[2] && hostSubsGuest*1>=scoresFilter[3]) scoresItem=true;
+      // if(hso*1>=scoresFilter[0] && hsf*1>=scoresFilter[1] && hd*1>=scoresFilter[2] && hostSubsGuest*1>=scoresFilter[3]) scoresItem=true;
+      if(hostSubsGuest*1>=scoresFilter[0] && hostSubsGuest*1<=scoresFilter[1] && haSubsGa>=scoresFilter[2] && haSubsGa<=scoresFilter[3] ) scoresItem=true;
       else scoresItem=false;
       // if(!scoresItem) console.log('scoresFilter[3]:',scoresFilter[3],'hostSubsGuest:',hostSubsGuest,hostSubsGuest>=scoresFilter[3])
+      if(!scoresItem) console.log('scoresFilter[0]:',scoresFilter[0],'hostSubsGuest:',hostSubsGuest,'scoresFilter[1]:',scoresFilter[1],hostSubsGuest>=scoresFilter[0] && hostSubsGuest<=scoresFilter[1])
 
       return gameFilter && timeFilter && leagueFilter && scoresItem;
     })

@@ -18,7 +18,7 @@ class Filter extends Component {
         filterOn: true, // 筛选功能开启
         show: false, // 显示筛选条目
         showLeagues: [],// 选中的赛事名称
-        scoresFilter:[0,0,0,0], // 主队射正，主队射偏，危险进攻，主队正偏-客队正偏
+        scoresFilter:[0,0,0,0], // 主队正偏-客队正偏: 最小值，最大值   主队危险进攻-客队危险进攻：最小值，最大值
     };
 
     handleDisabledChange = data => {
@@ -71,8 +71,11 @@ class Filter extends Component {
     // 比分列表
     scoreChanged(index,value) {
         let scores = this.state.scoresFilter;
+        console.log('index:',index,'value:',value);
 
-        scores[index] = value;
+        scores[index*2] = value[0];
+        scores[index*2+1] = value[1];
+
         this.setState({ scoresFilter:scores })
         this.props.switchFilter({ scoresFilter:scores });
     }
@@ -128,16 +131,10 @@ class Filter extends Component {
                         <li className="scores">
                             <p className='title'>比分筛选：</p>
                             <div className="item-line">
-                                <span className='item'>主队射正：</span>
-                                <InputNumber min={0} max={100} defaultValue={0} onChange={this.scoreChanged.bind(this,0)} disabled={!filterOn}/>
-                                <span className='item'>主队射偏：</span>
-                                <InputNumber min={0} max={100} defaultValue={0} onChange={this.scoreChanged.bind(this,1)} disabled={!filterOn}/>
-                            </div>
-                            <div className="item-line">
-                                <span className='item'>危险进攻：</span>
-                                <InputNumber min={0} max={100} defaultValue={0} onChange={this.scoreChanged.bind(this,2)} disabled={!filterOn}/>
-                                <span className='item'>主队正偏-客队正偏：</span>
-                                <InputNumber min={-100} max={100} defaultValue={-100} onChange={this.scoreChanged.bind(this,3)} disabled={!filterOn}/>
+                                <p className='item'>主队正偏-客队正偏：</p>
+                                <Slider range min={-15} max={15} defaultValue={[0, 10]} onChange={this.scoreChanged.bind(this,0)} disabled={!filterOn} />
+                                <p className='item'>主队危险进攻-客队危险进攻：</p>
+                                <Slider range min={-100} max={100} defaultValue={[20, 50]} onChange={this.scoreChanged.bind(this,1)} disabled={!filterOn} />
                             </div>
                         </li>
                     </ul>
