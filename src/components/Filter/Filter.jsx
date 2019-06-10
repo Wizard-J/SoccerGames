@@ -126,7 +126,7 @@ class Filter extends Component {
                                 <span className='title'>赛事名称：</span>
                                 <Select
                                     mode="multiple"
-                                    style={{ width: '2rem',display:'block' }}
+                                    style={{ width: '100%',display:'block' }}
                                     placeholder={'pleace select'}
                                     defaultValue={this.state.showLeagues}
                                     onChange={this.handleChange}
