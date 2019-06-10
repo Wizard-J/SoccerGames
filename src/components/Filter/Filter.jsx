@@ -124,7 +124,6 @@ class Filter extends Component {
                                 <Select
                                     mode="multiple"
                                     style={{ width: '80%' }}
-                                    placeholder="Please select"
                                     defaultValue={this.state.showLeagues}
                                     onChange={this.handleChange}
                                     disabled={!filterOn}
