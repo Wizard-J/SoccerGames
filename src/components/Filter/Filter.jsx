@@ -119,11 +119,12 @@ class Filter extends Component {
                                 <span className='title'>赛事名称：</span>
                                 <Select
                                     mode="multiple"
-                                    style={{ width: '100%' }}
+                                    style={{ width: '80%' }}
                                     placeholder="Please select"
                                     defaultValue={this.state.showLeagues}
                                     onChange={this.handleChange}
                                     disabled={!filterOn}
+                                    getPopupContainer={triggerNode => triggerNode.parentNode}
                                 >
                                     {children}
                                 </Select>
