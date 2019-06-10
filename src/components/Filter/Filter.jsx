@@ -80,6 +80,10 @@ class Filter extends Component {
         this.setState({ scoresFilter:scores })
         this.props.switchFilter({ scoresFilter:scores });
     }
+    disableInput = ()=>{
+        const ele = document.getElementsByClassName("ant-select-selection__placeholder")[0];
+        ele.innerHTML='';
+    }
 
     render() {
         const { filterOn } = this.state;
@@ -124,7 +128,7 @@ class Filter extends Component {
                                     defaultValue={this.state.showLeagues}
                                     onChange={this.handleChange}
                                     disabled={!filterOn}
-                                    getPopupContainer={triggerNode => triggerNode.parentNode}
+                                    onFocus={this.disableInput}
                                 >
                                     {children}
                                 </Select>
