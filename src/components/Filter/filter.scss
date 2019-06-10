@@ -51,6 +51,10 @@
                     height: 24px;
                     overflow: hidden;
                 }
+                .ant-select-selection__rendered{
+                    display: flex;
+                    align-items: center;
+                }
             }
             li.scores{
                 min-height: 0.5rem;
