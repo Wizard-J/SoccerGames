@@ -36,6 +36,7 @@
             }
             li.leagueName{
                 min-height: 0.5rem;
+                height: auto;
                 div.leagueName{
                     height: 100%;
                     display: flex;
@@ -45,6 +46,12 @@
                         width:1rem;
                     }
                 }
+
+                .ant-select-selection__choice{
+                    height: 24px;
+                    overflow: hidden;
+                }
+
             }
             li.scores{
                 min-height: 0.5rem;
