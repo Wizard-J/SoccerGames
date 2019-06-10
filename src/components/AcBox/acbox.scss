@@ -3,7 +3,7 @@
     .ac-abstract{
         display: flex;
         .play-time{
-            width:0.6rem;
+            width:10%;
             text-align: center;
             line-height: 1.6;
             display: flex;
@@ -20,16 +20,24 @@
                 }
             }
         }
-        .paly-content{
-            flex:1;
+        .play-content{
+            width:90%;
             display: flex;
             flex-direction: column;
-            padding:0.1rem;
+            font-size: 12px;
+            font-weight: 400;
+            color: #000;
             div{
                 display: flex;
             }
             .player-name{
-                width:1.2rem;
+                display: block;
+                min-width: 0.8rem;
+                -webkit-flex-basis: 80px;
+                flex-basis: 80px;
+                text-overflow: ellipsis;
+                overflow-x: hidden;
+                white-space: nowrap;
             }
             .time-line{
                 margin: 0.1rem 0;
@@ -84,6 +92,7 @@
                 }
             }
             .play-line{
+                line-height: 0.36rem;
                 div.card_status{
                     display: block;
                     span.card-yellow{

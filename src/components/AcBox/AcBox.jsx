@@ -55,7 +55,7 @@ class AcBox extends Component {
                             <div className="vs"> {status==="全"||status==="半"||status==="未"? status : status + "'"}</div>
                         </div>
                     </div>
-                    <div className="paly-content">
+                    <div className="play-content">
                         <div className="play-line">
                             <div className="player-name" style={{ color: 'rgb(207, 19, 19)' }}>
                                 <span className="team_name">{host && host.n}</span>

@@ -6,7 +6,8 @@ html{
   font-size: 100px;
 }
 body{
-  font-size: 0.14rem;
+  font-size: 14px;
+  user-select: none;
 }
 a{
   display: block;
