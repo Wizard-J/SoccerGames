@@ -11,6 +11,10 @@ body{
   color: #000;
   user-select: none;
 }
+#root{
+  width: 100vw;
+  overflow: hidden;
+}
 a{
   display: block;
 }
