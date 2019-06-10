@@ -36,12 +36,19 @@ class Filter extends Component {
         if (toShow) {
             this._filter.style.height = '100vh';
             this._head.style.marginTop = '0.5rem';
+            this.blurElement();
         }
         else {
             this.props.filterUpDate();
             this._filter.style.height = '0.5rem';
             this._head.style.marginTop = '0';
         }
+    }
+
+    // 禁用设备输入框
+    blurElement(){
+        const inputs = document.getElementsByClassName('ant-select-search__field')[0];
+        inputs.onfocus = inputs.onblur;
     }
 
     timeChange = (data) => {
