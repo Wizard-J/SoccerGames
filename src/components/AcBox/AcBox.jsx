@@ -5,7 +5,7 @@ import "./acbox.scss";
 
 class AcBox extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             show: false,
@@ -13,7 +13,7 @@ class AcBox extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProps){
+    componentWillReceiveProps(nextProps) {
         this.setState({
             ...nextProps
         })
@@ -26,24 +26,24 @@ class AcBox extends Component {
     }
 
     render() {
-        const { scores, status, host, guest ,concede, graph} = this.state;
+        const { scores, status, host, guest, concede, graph } = this.state;
 
-        const { events, ml} = graph ? graph : { events:[], ml:90 }; // 比赛事件进度
+        const { events, ml } = graph ? graph : { events: [], ml: 90 }; // 比赛事件进度
 
-        const prograss = status==='半'? '50%':status/ml*100 + '%';
+        const prograss = status === '半' ? '50%' : status / ml * 100 + '%';
 
         //处理让球
-        for(let i in concede){
-            if(concede[i]===null)concede[i]='-';
+        for (let i in concede) {
+            if (concede[i] === null) concede[i] = '-';
         }
 
         // 大小球
         let competing = undefined;
-        if(concede)competing = concede.dx ? concede.dx[0] : undefined;
+        if (concede) competing = concede.dx ? concede.dx[0] : undefined;
 
         //处理大小球
-        for(let i in competing){
-            if(competing[i]===null)competing[i]='-';
+        for (let i in competing) {
+            if (competing[i] === null) competing[i] = '-';
         }
 
         return (
@@ -51,8 +51,8 @@ class AcBox extends Component {
                 <div className="ac-abstract">
                     <div className="play-time">
                         <div className="ccc">
-                            <div className="as">{scores &&  scores.hg + " : " + scores.gg}</div>
-                            <div className="vs"> {status==="全"||status==="半"||status==="未"? status : status + "'"}</div>
+                            <div className="as">{scores && scores.hg + " : " + scores.gg}</div>
+                            <div className="vs"> {status === "全" || status === "半" || status === "未" ? status : status + "'"}</div>
                         </div>
                     </div>
                     <div className="play-content">
@@ -63,51 +63,54 @@ class AcBox extends Component {
                             <div className="card_status">
                                 {
                                     // 黄牌
-                                    scores && scores.hy>0 &&<span className="card-yellow">{scores.hy}</span>
+                                    scores && scores.hy > 0 && <span className="card-yellow">{scores.hy}</span>
                                 }
                                 {
                                     // 红牌
-                                    scores && scores.hr>0 &&<span className="card-red">{scores.hr}</span>
+                                    scores && scores.hr > 0 && <span className="card-red">{scores.hr}</span>
                                 }
                             </div>
                             <div className="ci">
                                 <span>亚：
                                     {
                                         concede ?
-                                        concede.hrfsp+'/'+concede.hrf+'/'+concede.grfsp :
-                                        '-/-/-'
+                                            concede.hrfsp + '/' + concede.hrf + '/' + concede.grfsp :
+                                            '-/-/-'
                                     }
                                 </span>
                                 <span>
                                     大：
                                     {
-                                        competing ? 
-                                        competing.hdxsp+'/'+competing.hdx+'/'+competing.gdxsp :
-                                        '-/-/-'
+                                        competing ?
+                                            competing.hdxsp + '/' + competing.hdx + '/' + competing.gdxsp :
+                                            '-/-/-'
                                     }
                                 </span>
-                                </div>
+                            </div>
                         </div>
                         <div className="time-line c">
                             <div className="icons">
                                 {/*
-                                    <i className="hsoff" style={{ left: '20%' }} />
-                                    <i className="asoff" style={{ left: '24%' }} />
-                                    <i className="ason" style={{ left: '48%' }} />
-                                  
-                                    <i className="z" style={{ left: '38%' }}></i>
-                                    <i className="k" style={{ left: '71%' }} />
+                                    <i className="hsoff" style={{ left: '20%' }} />  // 主队射正
+                                    <i className="asoff" style={{ left: '24%' }} />  // 客队射正
+                                    
+                                    <i class="hson" style="left:57%"></i>           // 主队射偏
+                                    <i className="ason" style={{ left: '48%' }} />  // 客队射偏
+
+                                    <i className="z" style={{ left: '38%' }}></i>   // 主队进球
+                                    <i className="k" style={{ left: '71%' }} />     // 客队进球
+
                                 */}
                                 {
-                                    
-                                    events.map((item,index)=>{
-                                        const time = item.status/ml *100 + '%';
-                                        switch(item.t){
+
+                                    events.map((item, index) => {
+                                        const time = item.status / ml * 100 + '%';
+                                        switch (item.t) {
                                             case 'gg':
                                                 return <i key={index} className="k" style={{ left: time }} />;
                                             case 'hg':
                                                 return <i key={index} className="z" style={{ left: time }}></i>;
-                                            case 'hc':
+                                            case 'hc': 
                                                 return <i key={index} className="hsoff" style={{ left: time }} />;
                                             case 'gc':
                                                 return <i key={index} className="asoff" style={{ left: time }} />;
@@ -117,6 +120,7 @@ class AcBox extends Component {
                                     })
                                 }
                             </div>
+
                             <div className="cd" style={{ width: prograss }} />
                         </div>
                         <div className="play-line">
@@ -124,15 +128,15 @@ class AcBox extends Component {
                                 <span className="team_name">{guest && guest.n}</span>
                             </div>&gt;
                                 <div className="card_status" >
-                                    {
-                                        // 黄牌
-                                        scores && scores.gy>0 &&<span className="card-yellow">{scores.hy}</span>
-                                    }
-                                    {
-                                        // 红牌
-                                        scores && scores.gr>0 &&<span className="card-red">{scores.hr}</span>
-                                    }
-                                </div>
+                                {
+                                    // 黄牌
+                                    scores && scores.gy > 0 && <span className="card-yellow">{scores.hy}</span>
+                                }
+                                {
+                                    // 红牌
+                                    scores && scores.gr > 0 && <span className="card-red">{scores.hr}</span>
+                                }
+                            </div>
                             <div className="ci">
                                 <span>欧：-</span>
                                 <span>初：-</span>
@@ -141,9 +145,9 @@ class AcBox extends Component {
                     </div>
 
                 </div>
-                <AcDetail 
-                    show={this.state.show} 
-                    plus={this.state.plus}/>
+                <AcDetail
+                    show={this.state.show}
+                    plus={this.state.plus} />
             </div>
         );
 

@@ -124,8 +124,8 @@ class App extends Component {
   componentDidMount(){
     this.setState({
       timer:setInterval(() => {
-        // console.log("视图更新了");
-        this.update();
+        console.log("视图更新了");
+        // this.update();
       }, randomTimer(10,15))
     })
   }

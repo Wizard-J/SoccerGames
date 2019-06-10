@@ -35,10 +35,12 @@ class Filter extends Component {
         })
         if (toShow) {
             this._filter.style.height = '100vh';
+            this._head.style.marginTop = '0.5rem';
         }
         else {
             this.props.filterUpDate();
             this._filter.style.height = '0.5rem';
+            this._head.style.marginTop = '0';
         }
     }
 
@@ -91,7 +93,7 @@ class Filter extends Component {
 
         return (
             <div className="filter" ref={filter => this._filter = filter}>
-                <div className="head"  >
+                <div className="head" ref={head => this._head = head}  >
                     <label className="weui-label" style={{ display: 'block', width: '5em' }}>手动筛选</label>
                     {this.state.show ? <span onClick={this.showFilter}>close</span> : <span onClick={this.showFilter}>open</span>}
                     <div className="switch">
