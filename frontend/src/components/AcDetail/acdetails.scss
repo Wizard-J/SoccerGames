@@ -1,0 +1,39 @@
+.play-detail.show {
+    height: 1rem;
+    padding: 0 0.05rem;
+    transition: .3s;
+    overflow-y: hidden;
+    text-align: center;
+    font-size: 0.12rem;
+    div.cv-line{
+        display: flex;
+        div.cv-helf{
+            margin:0 0.1rem;
+            flex:1;
+            div.text-line{
+                display: flex;
+                justify-content: space-between;
+                div.z{
+                    color: #cf1313;
+                }
+                div.t{
+                    color:#666;
+                }
+                div.k{
+                    color: #2c1c91;
+                }
+            }
+            p.rate-line{
+                margin-bottom: 10px;
+                background: #2c1c91;
+                height: 3px;
+                i{
+                    display: block;
+                    width: 50%;
+                    background: #cf1313;
+                    height: 3px;
+                }
+            }
+        }
+    }
+}
